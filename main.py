@@ -22,15 +22,21 @@ print("Resultado:", result)
 numberOne = float(input("\nIngresa el primer numero: "))
 numberTwo = float(input("Ingresa el segundo numero: "))
 
-result = numberOne / numberTwo
-print("Resultado:", result)
+if numberTwo == 0:
+    print("No se puede dividir entre 0")
+else:
+    result = numberOne / numberTwo
+    print("Resultado:", result)
 
 
 numberOne = float(input("\nIngresa el primer numero: "))
 numberTwo = float(input("Ingresa el segundo numero: "))
 
-result = numberOne % numberTwo
-print("Resultado:", result)
+if numberTwo == 0:
+    print("No se puede realizar modulo entre 0")
+else:
+    result = numberOne % numberTwo
+    print("Resultado:", result)
 
 
 opc = int(input("\n1. Suma \n2. Resta \n3. Multiplicacion \n4. Division \n5. Modulo \n6. Salir \nQue operacion quieres hacer? "))
@@ -62,15 +68,21 @@ while opc != 6:
             numberOne = float(input("Ingresa el primer numero: "))
             numberTwo = float(input("Ingresa el segundo numero: "))
 
-            result = numberOne / numberTwo
-            print("Resultado:", result)
+            if numberTwo == 0:
+                print("No se puede dividir entre 0")
+            else:
+                result = numberOne / numberTwo
+                print("Resultado:", result)
 
         case 5:
             numberOne = float(input("Ingresa el primer numero: "))
             numberTwo = float(input("Ingresa el segundo numero: "))
 
-            result = numberOne % numberTwo
-            print("Resultado:", result)
+            if numberTwo == 0:
+                print("No se puede realizar modulo entre 0")
+            else:
+                result = numberOne % numberTwo
+                print("Resultado:", result)
 
         case _:
             print("Opcion no valida")
@@ -106,6 +118,7 @@ while True:
             break
 
 i = 0
+error = False
 
 while i < len(operations):
     match operations[i]:
@@ -117,6 +130,11 @@ while i < len(operations):
             operations.pop(i)
 
         case "/":
+            if numbers[i + 1] == 0:
+                print("No se puede dividir entre 0")
+                error = True
+                break
+
             result = numbers[i] / numbers[i + 1]
 
             numbers[i] = result
@@ -126,14 +144,15 @@ while i < len(operations):
         case _:
             i += 1
 
-result = numbers[0]
+if error == False:
+    result = numbers[0]
 
-for i in range(len(operations)):
-    match operations[i]:
-        case "+":
-            result = result + numbers[i + 1]
+    for i in range(len(operations)):
+        match operations[i]:
+            case "+":
+                result = result + numbers[i + 1]
 
-        case "-":
-            result = result - numbers[i + 1]
+            case "-":
+                result = result - numbers[i + 1]
 
-print("Resultado:", result)
+    print("Resultado:", result)
