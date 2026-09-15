@@ -1,4 +1,3 @@
-'''
 numberOne = int(input("Ingresa el primer numero: "))
 numberTwo = int(input("Ingresa el segundo numero: "))
 
@@ -77,7 +76,7 @@ numberThree = float(input("Ingresa el tercer numero: "))
 
 result = numberOne + numberTwo + numberThree
 print(result)
-'''
+
 
 numbers = []
 operations = []
